@@ -10,6 +10,7 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 library(knitr)
+library(patentsview)
 library(tidyverse)
 library(jsonlite)
 library(httr)
@@ -20,7 +21,7 @@ data("cpc_subclasses")
 
 `patentsview` is a simple set of functions to query the [Patents endpoint](https://api.patentsview.org/patent.html) of the [PatentsView API](https://www.patentsview.org/) using [CPC Subclass](https://en.wikipedia.org/wiki/Cooperative_Patent_Classification) identifiers (e.g. [G16H for medical informatics](https://www.uspto.gov/web/patents/classification/cpc/html/cpc-G16H.html#G16H))
 
-# Introduction
+# introduction
 
 Patents and patent applications are a valuable measure of innovation within countries, sub-national geographies (e.g. states or cities), industries, and firms. Numerous patent databases exist, including [PATSTAT from the EPO](https://data.epo.org/expert-services/index.html), [NBER](https://www.nber.org/research/data/us-patents), [Google Patents](https://patents.google.com/), [OECD Patent Microdata](http://www.oecd.org/sti/intellectual-property-statistics-and-analysis.htm), [the USPTO](https://www.uspto.gov/patents-application-process/search-patents), and [others](https://iii.pubpub.org/datasets). These databases can be unweildy, so the USPTO created [PatentsView](https://www.patentsview.org/) as a user-friendly query portal for data about individual patents. They also implemented several API endpoints that can be queried directly. Despite its public availability and documentation, the PatentsView API isn't *that* easy to use. So to collect data about patents across different patent types, classified by Cooperative Patent Classification (CPC) subclasses, I wrote a few helper functions. Hope they're useful.
 

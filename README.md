@@ -8,7 +8,7 @@ Subclass](https://en.wikipedia.org/wiki/Cooperative_Patent_Classification)
 identifiers (e.g. [G16H for medical
 informatics](https://www.uspto.gov/web/patents/classification/cpc/html/cpc-G16H.html#G16H))
 
-# Introduction
+# introduction
 
 Patents and patent applications are a valuable measure of innovation
 within countries, sub-national geographies (e.g. states or cities),
