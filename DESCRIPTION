@@ -1,0 +1,17 @@
+Package: patentsview
+Type: Package
+Title: Easy CPC-Based Queries of the PatentsView API
+Version: 0.1.0
+Author: Nate Apathy
+Maintainer: Nate Apathy <nate.apathy@gmail.com>
+Description: This package contains functions that make it easy to query the PatentsView API by CPC.
+    The main function, patents_view(cpc="CPC#"), pulls a fixed set of fields for patents with a given CPC.
+    Patents are only pulled if they have an application date after or on January 1, 2000.
+    Patents are only pulled if the applicant is US-based.
+    The function creates a flat file of patent information including:
+    Patent number, title, abstract, granted date, inventor and assignee information, and other CPCs assigned
+License: CC BY-SA
+Encoding: UTF-8
+LazyData: true
+Depends: 
+  tidyverse,httr,jsonlite,lubridate

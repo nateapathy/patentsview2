@@ -1,0 +1,78 @@
+#' @title Queries PatentsView API by CPC
+#'
+#' @description This function formats and submits a POST call to the PatentsView Patents API endpoint
+#'
+#' @param page
+#'
+#' @return a data frame of 27 fields
+#'
+#' @examples clean_patents(pvresult)
+#'
+#' @export
+
+########################################
+########### patent_post() ##############
+########################################
+pv_post <- function(page,env = parent.frame(),...) {
+  # get first page of results
+  request <- httr::POST(url="https://api.patentsview.org/patents/query",
+                        body=list(
+                          q=list(
+                            "_and"=c( # AND boolean operator to wrap around all three query components
+                              list( # need these unnamed lists for whatever reason to make sure the wrapper does [] correctly
+                                list( # greater than date criteria
+                                  "_gte"=list(
+                                    app_date="2000-01-01" # all patents granted since Jan 2000
+                                  )
+                                )
+                              ),
+                              list( # CPC category
+                                list(
+                                  cpc_group_id=env$cpc #
+                                )
+                              ),
+                              list(
+                                list(
+                                  assignee_lastknown_country="US" # only from US applicants
+                                )
+                              )
+                            )
+                          ),
+                          f=c("patent_id", # hard-code the fields that will come back by default
+                              "patent_number",
+                              "patent_title",
+                              "patent_abstract",
+                              "patent_date",
+                              "patent_year",
+                              "patent_firstnamed_inventor_city",
+                              "patent_firstnamed_inventor_state",
+                              "patent_firstnamed_inventor_latitude",
+                              "patent_firstnamed_inventor_longitude",
+                              "patent_num_cited_by_us_patents",
+                              "patent_num_combined_citations",
+                              "patent_processing_time",
+                              "patent_type",
+                              # assignee info
+                              "patent_firstnamed_assignee_id", # from patents table
+                              "patent_firstnamed_assignee_city", # from patents table
+                              "patent_firstnamed_assignee_state", # from patents table
+                              "patent_firstnamed_assignee_latitude", # from patents table
+                              "patent_firstnamed_assignee_longitude", # from patents table
+                              "assignee_organization", # from assignees table, requires unnesting
+                              "assignee_type", # from assignees table, requires unnesting
+                              "assignee_total_num_patents", # from assignees table, requires unnesting
+                              # application info
+                              "app_date","app_id",
+                              # cpc info
+                              "cpc_group_id","cpc_group_title"),
+                          o=list("page"=page,
+                                 "per_page"=10000)
+                        ),
+                        encode = "json")
+  # parse first page of results
+  results <- fromJSON(content(request,
+                              as = "text",
+                              encoding = "UTF-8"),
+                      flatten = T)
+  return(results)
+}
