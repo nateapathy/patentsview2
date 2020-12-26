@@ -11,7 +11,7 @@
 #' @export patents_view
 
 ########################################
-########### patents_view() ############
+########### patents_view() #############
 ########################################
 patents_view <- function(cpc) {
   # initialize list
