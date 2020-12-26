@@ -10,16 +10,16 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 library(knitr)
-library(patentsview)
+library(patentsview2)
 library(tidyverse)
 library(jsonlite)
 library(httr)
 data("cpc_subclasses")
 ```
 
-# patentsview
+# patentsview2
 
-`patentsview` is a simple set of functions to query the [Patents endpoint](https://api.patentsview.org/patent.html) of the [PatentsView API](https://www.patentsview.org/) using [CPC Subclass](https://en.wikipedia.org/wiki/Cooperative_Patent_Classification) identifiers (e.g. [G16H for medical informatics](https://www.uspto.gov/web/patents/classification/cpc/html/cpc-G16H.html#G16H))
+`patentsview2` is a simple set of functions to query the [Patents endpoint](https://api.patentsview.org/patent.html) of the [PatentsView API](https://www.patentsview.org/) using [CPC Subclass](https://en.wikipedia.org/wiki/Cooperative_Patent_Classification) identifiers (e.g. [G16H for medical informatics](https://www.uspto.gov/web/patents/classification/cpc/html/cpc-G16H.html#G16H))
 
 # introduction
 
@@ -27,10 +27,10 @@ Patents and patent applications are a valuable measure of innovation within coun
 
 # the `patents_view()` function
 
-`patentsview::patents_view()` is the primary function. This function calls two other functions, `pv_post()` and `clean_patents()`. This function has a single argument, `cpc`, which takes a string consisting of any of the  4-character CPC subclasses available in PatentsView. By default, the function returns all patent applications with the defined classification since Jan 1, 2000 to the USPTO by US-based assignees.
+`patentsview2::patents_view()` is the primary function. This function calls two other functions, `pv_post()` and `clean_patents()`. This function has a single argument, `cpc`, which takes a string consisting of any of the  4-character CPC subclasses available in PatentsView. By default, the function returns all patent applications with the defined classification since Jan 1, 2000 to the USPTO by US-based assignees.
 
 ```{r}
-patentsview::patents_view(cpc="F03B")
+patentsview2::patents_view(cpc="F03B")
 ```
 
 This returns a data frame of patent application observations and 27 fields of information about the patent as well as the first named inventor and assignee.
@@ -65,7 +65,7 @@ names(random_cpcs) <- cpc_samp
 ```{r, eval=T}
 # CPC Subclass B62K: Unicycles
 cpc_subclasses %>% filter(cpc_subclass=="B62K")
-b62k <- patentsview::patents_view(cpc="B62K")
+b62k <- patentsview2::patents_view(cpc="B62K")
 dim(b62k) 
 # 1,844 patent applications since Jan 1 2000
 

@@ -1,7 +1,7 @@
 
-# patentsview
+# patentsview2
 
-`patentsview` is a simple set of functions to query the [Patents
+`patentsview2` is a simple set of functions to query the [Patents
 endpoint](https://api.patentsview.org/patent.html) of the [PatentsView
 API](https://www.patentsview.org/) using [CPC
 Subclass](https://en.wikipedia.org/wiki/Cooperative_Patent_Classification)
@@ -31,7 +31,7 @@ wrote a few helper functions. Hope they’re useful.
 
 # the `patents_view()` function
 
-`patentsview::patents_view()` is the primary function. This function
+`patentsview2::patents_view()` is the primary function. This function
 calls two other functions, `pv_post()` and `clean_patents()`. This
 function has a single argument, `cpc`, which takes a string consisting
 of any of the 4-character CPC subclasses available in PatentsView. By
@@ -39,7 +39,7 @@ default, the function returns all patent applications with the defined
 classification since Jan 1, 2000 to the USPTO by US-based assignees.
 
 ``` r
-patentsview::patents_view(cpc="F03B")
+patentsview2::patents_view(cpc="F03B")
 ```
 
 This returns a data frame of patent application observations and 27
@@ -92,7 +92,7 @@ names(random_cpcs) <- cpc_samp
 cpc_subclasses %>% filter(cpc_subclass=="B62K")
 #>   cpc_subclass     title
 #> 1         B62K Unicycles
-b62k <- patentsview::patents_view(cpc="B62K")
+b62k <- patentsview2::patents_view(cpc="B62K")
 dim(b62k) 
 #> [1] 1844   27
 # 1,844 patent applications since Jan 1 2000
