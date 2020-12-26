@@ -1,7 +1,7 @@
 Package: patentsview
 Type: Package
 Title: Easy CPC-Based Queries of the PatentsView API
-Version: 0.1.0
+Version: 0.2.0
 Author: Nate Apathy
 Maintainer: Nate Apathy <nate.apathy@gmail.com>
 Description: This package contains functions that make it easy to query the PatentsView API by CPC.
