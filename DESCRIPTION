@@ -1,4 +1,4 @@
-Package: patentsview
+Package: patentsview2
 Type: Package
 Title: Easy CPC-Based Queries of the PatentsView API
 Version: 0.2.0
