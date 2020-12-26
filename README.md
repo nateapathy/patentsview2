@@ -6,7 +6,10 @@ endpoint](https://api.patentsview.org/patent.html) of the [PatentsView
 API](https://www.patentsview.org/) using [CPC
 Subclass](https://en.wikipedia.org/wiki/Cooperative_Patent_Classification)
 identifiers (e.g. [G16H for medical
-informatics](https://www.uspto.gov/web/patents/classification/cpc/html/cpc-G16H.html#G16H))
+informatics](https://www.uspto.gov/web/patents/classification/cpc/html/cpc-G16H.html#G16H)).
+It is complementary to, but not integrated with, the `patentsview`
+package [available on
+CRAN](https://docs.ropensci.org/patentsview/index.html).
 
 # introduction
 
