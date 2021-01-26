@@ -13,7 +13,7 @@
 ########################################
 ########### patent_post() ##############
 ########################################
-pv_post <- function(page,env = parent.frame(),...) {
+pv_post <- function(page,start_date,env = parent.frame(),...) {
   # get first page of results
   request <- httr::POST(url="https://api.patentsview.org/patents/query",
                         body=list(
@@ -22,7 +22,7 @@ pv_post <- function(page,env = parent.frame(),...) {
                               list( # need these unnamed lists for whatever reason to make sure the wrapper does [] correctly
                                 list( # greater than date criteria
                                   "_gte"=list(
-                                    app_date="2000-01-01" # all patents granted since Jan 2000
+                                    app_date=start_date # all patents granted since Jan 2000
                                   )
                                 )
                               ),

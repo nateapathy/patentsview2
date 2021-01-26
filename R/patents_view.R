@@ -13,17 +13,18 @@
 ########################################
 ########### patents_view() #############
 ########################################
-patents_view <- function(cpc) {
+patents_view <- function(cpc,from) {
   # initialize list
+  from <- from
   results <- list()
-  results[[1]] <- pv_post(page=1)
+  results[[1]] <- pv_post(page=1,start_date=from)
   # figure how how many more pages of results there are
   names(results[[1]])[[3]] <- "total"
   # rename this from patents/assignees to "total" for math reasons
   pgs <- ceiling(results[[1]]$total/results[[1]]$count)
   if (pgs>1) { # loop through remaining pages, if there's more than 1
     for (i in c(2:pgs)) {
-      results[[i]] <- pv_post(page=i)
+      results[[i]] <- pv_post(page=i,start_date=from)
     }
     return(clean_patents(results))
   }
