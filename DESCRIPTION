@@ -15,3 +15,4 @@ Encoding: UTF-8
 LazyData: true
 Depends: 
   tidyverse,httr,jsonlite,lubridate
+RoxygenNote: 7.1.1
