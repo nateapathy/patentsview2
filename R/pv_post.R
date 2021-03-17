@@ -52,6 +52,10 @@ pv_post <- function(page,start_date,env = parent.frame(),...) {
                               "patent_num_combined_citations",
                               "patent_processing_time",
                               "patent_type",
+                              "govint_contract_award_number",
+                              "govint_raw_statement",
+                              "patent_num_cited_by_us_patents",
+                              "patent_num_us_patent_citations",
                               # assignee info
                               "patent_firstnamed_assignee_id", # from patents table
                               "patent_firstnamed_assignee_city", # from patents table
