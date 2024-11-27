@@ -65,6 +65,8 @@ pv_post <- function(page,start_date,env = parent.frame(),...) {
                               "assignee_organization", # from assignees table, requires unnesting
                               "assignee_type", # from assignees table, requires unnesting
                               "assignee_total_num_patents", # from assignees table, requires unnesting
+                              "assignee_first_seen_date",
+                              "assignee_last_seen_date",
                               # application info
                               "app_date","app_id",
                               # cpc info
