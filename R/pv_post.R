@@ -70,7 +70,8 @@ pv_post <- function(page,start_date,env = parent.frame(),...) {
                               # cpc info
                               "cpc_group_id","cpc_group_title"),
                           o=list("page"=page,
-                                 "per_page"=1000)
+                                 "per_page"=1000
+                                 )
                         ),
                         encode = "json")
   # parse first page of results
