@@ -26,6 +26,16 @@ pv_post <- function(page,start_date,env = parent.frame(),...) {
                                   )
                                 )
                               ),
+                              list(
+                                list(
+                                  cpc_section_id=substr(env$cpc, 1, 1)
+                                )
+                              ),
+                              list(
+                                list(
+                                  cpc_subsection_id=substr(env$cpc, 1, 3)
+                                )
+                              ),
                               list( # CPC category
                                 list(
                                   cpc_group_id=env$cpc #
