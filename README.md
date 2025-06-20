@@ -1,3 +1,4 @@
+## NOTICE: This package was built for the PatentsView Legacy API, which has been discontinued as of May 1 2025. As a result... none of it works anymore. I will hopefully get around to updating it sometime in 2025.
 
 # patentsview2
 
